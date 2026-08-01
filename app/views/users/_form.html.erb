@@ -1,0 +1,26 @@
+<%= form_with(model: user) do |form| %>
+  <% if user.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+        <% user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="mb-3">
+    <%= form.label :nome %>
+    <%= form.text_field :nome, class: "form-control" %>
+  </div>
+  <di class="mb-3">
+    <%= form.label :email %>
+    <%= form.email_field :email, class: "form-control" %>
+  </di>
+
+  <div class="mb-3">
+    <%= form.label :idade %>
+    <%= form.number_field :idade, class: "form-control" %>
+  </div>
+
+  <%= form.submit  "Salvar ", class:"btn btn-primary" %>
+<% end %>
